@@ -140,7 +140,7 @@ public class MethodTask {
 		for(int i=0; i<num.length; i++) {  // 5번 반복
 			sum += num[i];  // 배열에 저장된 수들을 모두 합한다
 		}
-		avg = (double)sum / 5;  // 평균을 실수형으로 저장
+		avg = (double)sum / num.length;  // 평균을 실수형으로 저장
 		return avg;  // return
 	}
 	

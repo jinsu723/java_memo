@@ -21,7 +21,7 @@ public class SelectionSort {
 				}
 			}
 			// 최소값과 현재 요소 교환
-			int temp = number[minIdx];  // 5
+			int temp = number[minIdx];
 			number[minIdx] = number[i];
 			number[i] = temp;
 			
