@@ -17,7 +17,6 @@ public class Tv {
 	
 	// 매개변수 2개 있는 생성자
 	public Tv(boolean power, int ch) {
-		super();
 		this.power = power;
 		this.ch = ch;
 	}

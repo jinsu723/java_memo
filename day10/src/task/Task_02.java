@@ -24,7 +24,7 @@ public class Task_02 {
 	// 정수형 size;
 	// 정수형 price;
 	boolean power;  // 전원의 상태 기본값 : false
-	int channel = 990;  // 체널 번호 1로 초기화
+	int channel = 1;  // 체널 번호 1로 초기화
 	String color;  // Tv의 색상 기본값 null
 	String size;  // Tv의 크기 기본값 0
 	int price;  // Tv의 가격 기본값 0

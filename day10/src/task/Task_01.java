@@ -16,7 +16,18 @@ public class Task_01 {
 	// 필드 생성 String name, int age, String Type
 	String name;  // 이름을 저장할 수 있는 필드
 	int age;  // 나이를 저장할 수 있는 필드
-	String Type;  // 종류를 저장할 수 있는 필드
+	String type;  // 종류를 저장할 수 있는 필드
+	
+	Task_01(String name, int age, String type){  // 변수 초기화
+		this.name = name;  // 이름 초기화
+		this.age = age;  // 나이 초기화
+		this.type = type;  // 종류 초기화
+	}
+	
+	Task_01(String name, int age){  // 나이와 이름만 입력받음
+		this(name, age, "고양이");  // 냥으로 끝나는 이름은 무조건 고양이
+	}
+	
 	
 	// 메소드 생성
 	// 밥먹기
