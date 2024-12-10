@@ -13,11 +13,14 @@ public class EBook extends Book{  // Book 클래스를 상속하는 EBook 클래
 		this.author = author;  // 저자를 초기화
 		this.sizeInMB = sizeInMB;  // 책의 용량을 초기화
 	}
-	
-	void printInfo() {  // 책의 정보를 출력하는 메소드
-		System.out.println("책의 제목은 " + this.title + "이고, 저자는 " + this.author + "이고, 용량은 " + this.sizeInMB + "입니다.");
-		// 메시지 출력
+
+	@Override
+	void printInfo() {
+		super.printInfo();
+		System.out.println("책의 용량 : " + this.sizeInMB);
 	}
+	
+
 	
 	// 필드 선언 sizeInMB
 	// 생성자 기본생성자

@@ -17,7 +17,7 @@ public class CheckingAccount extends Account{
       if(this.balance < totalAmount) {
          System.out.println("잔액부족! 출금 실패");
       }else {
-         this.balance -= amount;
+         this.balance -= totalAmount;
          System.out.println("출금된 금액 : " + amount +", 수수료 : 1000원, 현재잔액 : " + this.balance);
       }
    }

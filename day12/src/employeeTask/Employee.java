@@ -17,6 +17,8 @@ public class Employee {  // 클래스 선언
 	double calculateBonus() {  // 보너스 계산 메소드
 		return salary * 0.1;  // 봉급 * 0.1 을 return
 	}
+	
+	
 	public static void main(String[] arga) {  // 메인메소드
 //		1) 직원 프로그램
 //	Employee 클래스

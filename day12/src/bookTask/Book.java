@@ -20,7 +20,8 @@ public class Book {  // 클래스 선언
 	}
 	
 	void printInfo() {  // 책의 정보 출력
-		System.out.println("책의 제목은 " + this.title + "이고, 저자는 " + this.author + "입니다.");
+		System.out.println("책의 제목 : " + this.title);
+		System.out.println("책의 저자 : " + this.author);
 		// 객체에 저장된 필드와 메시지 출력
 	}
 	public static void main(String[] asgs) {  // 메인메소드

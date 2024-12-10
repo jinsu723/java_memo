@@ -13,7 +13,7 @@ public class Variable02 {
 //		특수문자를 쓸 수 없다(단, _와 $는 가능)
 //		int @#$% = 10;
 		int a$b_ = 10;
-		System.out.println(a$b_);
+		System.out.println("a$b : " + a$b_);
 		
 //		공백을 사용할 수 없다(카멜표기법, 스네이크표기법 등을 활용한다)
 //		int num ber = 10;
@@ -28,8 +28,8 @@ public class Variable02 {
 //		되도록 소문자로 시작한다(대소문자를 구분한다)
 		int Abc = 100;
 		int abc = 200;
-		System.out.println(Abc);
-		System.out.println(abc);
+		System.out.println("Abc : " + Abc);
+		System.out.println("abc : " + abc);
 		
 	}
 
