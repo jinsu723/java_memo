@@ -20,7 +20,7 @@ public class Main2 {
 					result += msg1.charAt(i);  // 결과변수에 이어붙여 저장
 				}
 				return result;  // 결과 반환
-			};
+			}; 
 			return si;  // 반환받은 결과를 메인 메소드로 반환
 		} else if (word.equals("B")) {  // B가 들어왔다면
 			SubInter si = (msg1, msg2) -> {  // 람다식 구현부 객체 선언

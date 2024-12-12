@@ -33,6 +33,7 @@ public class Zoo {
 	void printAllAction() {  // 모든 객체 행동 일괄 출력
 		for (Animal ani : animals) {  // 배열에 저장된 객체들을 순차적으로 내보낸다
 			ani.performAction();  // 해당 객체 행동 일괄 출력
+//			System.out.println(ani);
 		}
 	}
 }

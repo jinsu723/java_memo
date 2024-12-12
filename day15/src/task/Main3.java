@@ -8,6 +8,11 @@ public class Main3 {
 		
 		
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 	
 	static SubInter subPoint(String word) {
 		if(word.equals("F")) {
@@ -32,4 +37,5 @@ public class Main3 {
 		SubInter si = (msg1, msg2) -> "잘못 입력함";
 		return si;
 	}
+
 }

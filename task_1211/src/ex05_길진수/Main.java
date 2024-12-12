@@ -11,10 +11,10 @@ public class Main {
 		z.addAnimal(new Pet("얼룩말"));  // 업캐스팅 배열에 동물을 넣는 메소드 호출
 		z.addAnimal(new Pet("사자"));  // 업캐스팅 배열에 동물을 넣는 메소드 호출
 		z.addAnimal(new Pet("기린"));  // 업캐스팅 배열에 동물을 넣는 메소드 호출
-		z.addAnimal(new Pet("고릴라"));  // 업캐스팅 배열에 동물을 넣는 메소드 호출
+//		z.addAnimal(new Pet("고릴라"));  // 업캐스팅 배열에 동물을 넣는 메소드 호출
 		
 		z.printAllAction();  // 행동을 일괄 출력
 		
-
+		
 	}
 }
