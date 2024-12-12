@@ -1,0 +1,11 @@
+1. 컬렉션 프레임워크
+- java.util 패키지에서 제공
+- 클래스와 인터페이스를 묶어 놓은 개념
+- List와 Set이 있음 Map은 따로
+	Collection - List	- ArrayList
+				- Vector
+				- LinkedList
+		   - Set	- HashSet
+				- TreeSet
+	Map	- HashMap
+		- TreeMap

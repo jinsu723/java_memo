@@ -1,0 +1,602 @@
+0.
+부족했던 점 : 이론적인 부분의 이해와 복습이 부족했습니다
+
+잘했다고 생각하는 점 : 없는것 같습니다
+
+한주간 어떻게 공부할 계획인지
+	부족했던 이론적인 부분을 노션에 정리하며 개념을 잡겠습니다
+
+======================================================
+1) 직원 프로그램
+package employeeTask;
+
+public class Employee {  // 클래스 선언
+	String name;  // 이름 필드 선언
+	int salary;  // 봉급 필드 선언
+	
+	Employee(String name, int salary){  // 문자열과 정수형을 매개변수로 받는 생성자 선언
+		this.name = name;  // 이름 초기화
+		this.salary = salary;  // 봉급 초기화
+	}
+	
+	Employee(String name){  // 문자열 형태로만 매개변수를 받는 생성자 선언
+		this.name = name;  // 이름 초기화
+		this.salary = 600;  // 봉급 초기화
+	}
+	
+	double calculateBonus() {  // 보너스 계산 메소드
+		return salary * 0.1;  // 봉급 * 0.1 을 return
+	}
+	public static void main(String[] arga) {  // 메인메소드
+//		1) 직원 프로그램
+//	Employee 클래스
+//	필드 
+//	   name, salary
+//	메소드
+//	   calculateBonus() : 기본적으로 salary * 0.1 반환
+//
+//	Manager와 Developer 클래스는 Employee 클래스 상속
+//	Manager 클래스
+//	   calculateBonus()를 오버라이딩하여 salary * 0.2 반환
+//	Developer 클래스
+//	   calculateBonus()를 오버라이딩하여 salary * 0.15 반환
+//	메인 메소드에서 다형성을 사용하여 Employee 타입 배열에 각 객체를 저장하고, 보너스 계산
+		
+		System.out.println("*****직원 프로그램*****");
+		
+		// 메인 클래스에 필드 선언
+		// 생성자 선언
+		// 문자열과 정수형을 받는 생성자, 문자열만 받는 생성자
+		// 메소드 선언
+		// 리턴 타입 실수형
+		// 메인클래스를 상속받는 각 클래스에 생성자 선언
+		// 메인클래스를 상속받는 각 클래스에 메소드 선언 => 오버라이딩
+		// 객체 생성
+		// 결과 출력
+		
+		Employee p1 = new Employee("길진수");  // Employee 클래스에 있는 생성자로 객체 생성
+		Employee p2 = new Employee("길길진수", 1000);  // Employee 클레스에 있는 생성자로 객체 생성
+		Manager p3 = new Manager("진수길");  // Manage 클레스에 있는 생성자로 객체 생성
+		Developer p4 = new Developer("수길진");  // Developer 클래스에 있는 생성자로 객체 생성
+		
+		System.out.println("길진수의 보너스 : " + p1.calculateBonus());  // 봉급 계산 메소드 호출
+		System.out.println("길길진수의 보너스 : " + p2.calculateBonus());  // 봉급 계산 메소드 호출
+		System.out.println("진수길의 보너스 : " + p3.calculateBonus());  // Manager 클래스에서 메소드 오버라이딩하여 봉급 계산 후 출력
+		System.out.println("수길진의 보너스 : " + p4.calculateBonus());  // Developer 클래스에 메소드 오버라이딩하여 봉급 계산 후 출력
+
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------
+package employeeTask;
+
+public class Manager extends Employee{  // Employee 클래스를 상속받음
+
+	@Override
+	double calculateBonus() {  // 보너스 계산 메소드 => 오버라이딩
+		return salary * 0.2;  // 봉급 * 0.2를 return
+	}
+	
+	Manager(String name) {  // 이름 문자열을 받는 생성자 선언
+		super(name, 500);  // 이름만 달라지고 Manage의 봉급은 모두같다
+	}
+	
+
+}
+-----------------------------------------------------------------------------------------------------------------------------
+package employeeTask;
+
+public class Developer extends Employee{  // Employee를 상속받는 클래스
+
+	@Override
+	double calculateBonus() {  // 보너스 계산기 => 오버라이딩
+		return salary * 0.15;  // 봉급 * 0.15를 return
+	}
+
+	public Developer(String name) {  // 이름 문자열을 매개변수로 받는 생성자 선언
+		super(name, 600);  // 이름만 다르고 Developer의 봉급은 모두 같다
+	}
+}
+
+=============================================================================================================================
+2) 도서 프로그램
+package bookTask;
+
+public class Book {  // 클래스 선언
+	String title;  // 제목 필드 선언
+	String author;  // 저자 필드 선언
+	
+	Book(){  // 기본 생성자
+		this.title = "알수없음";  // 제목을 알 수 없음으로 초기화
+		this.author = "알수없음";  // 저자를 알 수 없음으로 초기화
+	}
+	
+	Book(String title){  // 제목만 받아 초기화
+		this.title = title;  // 제목 필드를 초기화
+		this.author = "알수없음";  // 저자는 알 수 없음으로 초기화
+	}
+	
+	Book(String title, String author){  // 제목과 저자를 받아 초기화
+		this.title = title;  // 제목 필드를 초기화
+		this.author = author;  // 저자 필드를 초기화
+	}
+	
+	void printInfo() {  // 책의 정보 출력
+		System.out.println("책의 제목은 " + this.title + "이고, 저자는 " + this.author + "입니다.");
+		// 객체에 저장된 필드와 메시지 출력
+	}
+	public static void main(String[] asgs) {  // 메인메소드
+//	2) 도서 프로그램
+//	Book 클래스 
+//	필드
+//	   title, author
+//
+//	생성자
+//	기본 생성자 : 제목과 작가를 "알수없음"으로 초기화
+//	매개변수 생성자 : 제목만 받아 작가를 "알수없음"으로 초기화
+//	매개변수 생성자 : 제목과 작가를 모두 받아 초기화
+//
+//	EBook 클래스 Book 클래스를 상속
+//	필드
+//	   sizeInMB
+//
+//	생성자
+//	기본 생성자
+//	   super()를 호출하여 제목과 작가를 "알수없음"으로 초기화하고 크기를 0으로 설정
+//	매개변수 생성자 
+//	   제목, 작가, 크기를 받아 초기화
+
+		// 필드 선언 문자열 2개
+		// 생성자 선언 3개
+		// 기본 생성자 필드 2개 알수없음 초기화
+		// 매개변수 생성자 title을 받고 작가를 알수없음
+		// 매개변수 생성자 author과 title을 모두 받아 초기화
+		
+		System.out.println("*****도서 프로그램*****");  // 프로그램 이름
+		
+		Book b1 = new Book();  // 기본생성자로 객체 생성
+		Book b2 = new Book("잭과콩나무");  // 제목만 받는 생성자로 객체 생성
+		Book b3 = new Book("고양이", "베르나르베르베르");  // 제목과 저자 모두를 받는 생성자로 객체 생성
+		
+		EBook b4 = new EBook();  // EBook클래스의 기본 생성자로 객체 생성
+		EBook b5 = new EBook("녹나무의파수꾼", "히가시노게이고", 100);
+		// EBook 클래스의 매개변수로 3개를 받는 생성자로 객체 생성
+		
+		b1.printInfo();  // b1의 정보 출력
+		b2.printInfo();  // b2의 정보 출력
+		b3.printInfo();  // b3의 정보 출력
+		b4.printInfo();  // b4의 정보 출력
+		b5.printInfo();  // b5의 정보 출력
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------package bookTask;
+
+public class EBook extends Book{  // Book 클래스를 상속하는 EBook 클래스 선언
+	int sizeInMB;  // 책의 용량 필드를 선언
+	
+	EBook(){  // 매개변수가 없는 생성자
+		super("알수없음", "알수없음");  // Book클래스의 생성자로 인수를 보내 필드를 초기화
+		this.sizeInMB = 0;  // 용량 초기화
+	}
+	
+	EBook(String title, String author, int sizeInMB){  // 제목, 저자, 용량을 받아 필드를 초기화하는 생성자 선언
+		this.title = title;  // 제목을 초기화
+		this.author = author;  // 저자를 초기화
+		this.sizeInMB = sizeInMB;  // 책의 용량을 초기화
+	}
+	
+	void printInfo() {  // 책의 정보를 출력하는 메소드
+		System.out.println("책의 제목은 " + this.title + "이고, 저자는 " + this.author + "이고, 용량은 " + this.sizeInMB + "입니다.");
+		// 메시지 출력
+	}
+	
+	// 필드 선언 sizeInMB
+	// 생성자 기본생성자
+	// super 사용
+	// super(제목과 작가 알수없음) 사이즈 0으로 초기화
+	// 매개변수 생성자
+	// 3개의 매개변수를 받아 초기화
+}
+
+
+===================================================================================================================================
+3) 잔액확인 프로그램
+package accountTask;
+
+public class Account {  // 클래스 선언
+	 static int balance;  // 잔액 필드 선언
+	
+	void deposit(double amount) {  // 실수를 매개변수로 하는 입금 메소드 선언
+		balance += amount;  // 정적 변수에서 입금할 금액 더해서 저장
+		System.out.println("입금 후 잔액 : " + balance);  // 입금 후 잔액 알려주기
+	}
+	
+	void withdraw(double amount) {  // 실수형을 매개변수로 하는 출금 메소드 선언
+		balance -= amount;  // 정적 변수에서 출금할 금액 빼고 저장
+		System.out.println("출금 후 잔액 : " + balance);  // 출금 후 잔액 알려주기
+	}
+	public static void main(String[] args) {  // 메인메소드
+//		3) 잔액확인 프로그램
+//	SavingsAccount와 CheckingAccount 클래스는 Account 클래스 상속
+//	Account 클래스
+//	필드
+//	   balance
+//	메소드
+//	   deposit(double amount) : 금액을 추가
+//	   withdraw(double amount) : 금액을 차감
+//
+//	SavingsAccount 클래스
+//	메소드 
+//	   withdraw()를 오버라이딩하여 출금 시 잔액이 부족하면 "출금 실패!" 출력
+//
+//	CheckingAccount 클래스
+//	메소드
+//	   withdraw()를 오버라이딩하여 추가로 1000원을 수수료로 부과
+//
+//	메인 메소드에서 두 클래스의 객체를 생성하고 입출금을 수행결과 출력
+
+		// balance 필드 선언
+		// deposit 메소드
+		// 실수형 매개변수 잔액 += 금액
+		// withdraw 메소드
+		// 실수형 매개변수 잔액 -= 금액
+		
+		System.out.println("*****잔액확인 프로그램*****");  // 프로그램 이름
+		
+		Account a = new Account();  // 입출금이 가능한 클래스 객체 생성
+		SavingAccount sa = new SavingAccount();  // 출금시 잔액이 -가 되지 않게 해주는 클래스 객체 생성
+		CheckingAccount ca = new CheckingAccount();  // 수수료를 빼주는 클래스의 객체 생성
+		
+		a.deposit(10000);  // 입금을 해주는 메소드
+		ca.withdraw(2000);  // 인수에 출금할 금액 넣고 메소드 호출 수수료 알려주고 1000원 빼기
+		sa.withdraw(2000);  // 인수에 출금할 금액 넣고 메소드 호출
+		
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------package accountTask;
+
+public class SavingAccount  extends Account{  // Account 클래스를 상속받는 클래스 선언
+
+//	SavingsAccount 클래스
+//	메소드 
+//	   withdraw()를 오버라이딩하여 출금 시 잔액이 부족하면 "출금 실패!" 출력
+	
+	@Override
+	void withdraw(double amount) {  // 메인클래스의 출금 메소드 오버라이딩
+		if(balance < amount) {  // 잔액보다 인출할 금액이 많다면
+			System.out.println("출금 실패!");  // 출금 실패 메시지 출력
+		} else {  // 잔액이 충분하다면
+			balance -= amount;  // 출금할 금액 잔액애서 빼서 저장
+			System.out.println("출금 후 잔액 : " + balance);  // 출금 후 잔액 알려주기
+		}
+	}
+	
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+package accountTask;
+
+public class CheckingAccount extends Account{  // Account 클래스를 상속받는 클래스 선언
+//	CheckingAccount 클래스
+//	메소드
+//	   withdraw()를 오버라이딩하여 추가로 1000원을 수수료로 부과
+	
+	void withdraw(double amount) {  // 메인 클래스의 출금 메소드 오버라이딩
+		balance -= 1000;  // 정적변수에서 1000원을 빼서 저장한다
+		System.out.println((int)amount + "원을 출금합니다. 수수료는 1000원 입니다.");
+		// 받은 인수를 정수형으로 출력하고 수수료 안내
+	}
+}
+===================================================================================================================================
+4. 팀별 메소드 문제
+package task;
+
+import java.util.Random;
+import java.util.Scanner;
+
+// 공백(0100) 문제1
+public class Task01 {
+	public static void main(String[] args) {
+//		** 문제 1. randomGame
+//
+//		게임에 참여할 두 명의 이름을 사용자에게 입력 받는다.
+//		랜덤으로 나온 5개 숫자들의 합이 더 큰 사람이 이기는 게임이다.
+//		메소드명 : randomGame
+//
+//		- randomGame 메서드를 main에서 두 번 호출하여 출력 형식대로 출력하게 만들 것
+//		- 매개변수 o 리턴 타입 자유
+//
+//		출력 형식
+//		1등 : 사용자 1, 합계 : 00
+//		2등 : 사용자 2, 합계 : 00
+//
+//		출제 의도
+//
+//		- 메서드를 외부에서 선언하고 호출하는 것을 연습하자
+//		- 랜덤 클래스 생성하여 nextInt 메서드 새롭게 사용해보기
+//		- Scanner의 입력 메서드를 변수에 넣어 인수로 사용해보기
+		
+		// 입력 메소드 import
+		// 두 사용자의 이름을 저장할 변수 선언
+		// 두 사용자의 합계를 저장할 변수 선언
+		// 승자와 패자의 합계를 비교할 변수 선언
+		// randonGame 메소드 객체 생성
+		// 두 사용자의 합계를 비교할 코드
+		// 결과 출력
+		
+		System.out.println("*****randonGame*****");  // 프로그램 이름
+		
+		Scanner sc = new Scanner(System.in);  // 입력메소드 import
+		String name1 = "", name2 = "";  // 두 사용자의 이름을 저장할 변수 선언
+		int sum1 = 0, sum2 = 0;  // 두 사용자의 합계를 저장할 변수 선언
+		
+		System.out.print("사용자1의 이름을 입력하세요 : ");  // 이름 입력 요구
+		name1 = sc.nextLine();  // 1번 사용자의 이름 저장
+		System.out.print("사용자2의 이름을 입력하세요 : ");  // 이름 입력 요구
+		name2 = sc.nextLine();  // 2번 사용자으 이름 저장
+		
+		sc.close();  // 자원 닫기
+		
+		Task01 t = new Task01();  // 객체 생성
+		sum1 = t.randomGame(name1);  // 1번 사용자의 게임 결과
+		sum2 = t.randomGame(name2);  // 2번 사용자으 게임 결과
+		
+		if(sum1 > sum2) {  // 1번 사용자 우승
+			System.out.println("1등 : " + name1 + ", 합계 : " + sum1);  // 1등 이름, 합계 출력
+			System.out.println("2등 : " + name2 + ", 합계 : " + sum2);  // 2등 이름, 합계 출력
+		} else if(sum1 < sum2) {  // 2번 사용자 우승
+			System.out.println("1등 : " + name2 + ", 합계 : " + sum2);  // 1등 이름, 합계 출력
+			System.out.println("2등 : " + name1 + ", 합계 : " + sum1);  // 2등 이름, 합계 출력
+		} else {  // 무승부
+			System.out.println("무승부");  // 메시지 출력
+		}
+	}
+	
+	// 리턴타입 : int
+	// 매개변수 : String name
+	// random 메소드 import
+	// 합계를 저장할 변수 선언
+	// 5번의 반복을 통해 랜덤으로 나온 값을 결과에 더해서 저장
+	// 결과값 return
+	
+	int randomGame(String name) {  // 메소드 선언 수형 return 매개변수 문자열
+		Random rd = new Random();  // 랜덤메소드 import
+		int sum = 0;  // 합계를 저장할 변수 선언
+		for(int i=0; i<5; i++) {  // 랜덤한 수를 5번 뽑는다
+			sum += rd.nextInt(10);  // 0 ~ 9까지의 수를 랜덤하게 뽑아서 합계에 누적 저장한다
+		}
+		return sum;  // 결과 return
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+package task;
+
+import java.util.Random;
+import java.util.Scanner;
+
+// 공백(0100) 문제3
+public class Task03 {
+	public static void main(String[] args) {
+//		- **문제 3. 랜덤다이스 만들기**
+//	    
+//	    주사위를 돌려서 같은 수 두 번이 나올 때 까지 던진다. 몇번째에 성공하는지 횟수를 계산해야 하고, 메서드에 이름을 입력하면 그 사람의 결과가 출력된다
+//	    
+//	    "연속으로 같은 수 나오기 성공"
+//	    "김태현님은 총 몇 번 성공하셨습니다" 출력
+//	    
+//	    메소드명은 randomDice, 리턴값은 없음, 매개변수는 문자열 변수 사용
+//	    
+//	    - 출제 의도 -< while문, 증감연산자, if문, 기타제어문>
+//	    
+//	    - 추가 요소
+//	    Random random = new Random();를 사용
+//	    random.nextInt(a)+b (:b부터 a까지의 수를 랜덤으로 뽑음)을 사용
+		
+		// 입력메소드 import
+		// 이름 저장할 변수 선언
+		// 객체 선언
+		
+		System.out.println("*****랜덤다이스 만들기*****");  // 프로그램 이름
+		
+		Scanner sc = new Scanner(System.in);  // 입력메소드 import
+		System.out.println("이름을 입력하세요.");  // 사용자에게 입력값 요구
+		String name = sc.nextLine();  // 이름 입력받아 저장하기
+		sc.close();  // 자원 닫기
+		
+		Task03 t = new Task03();  // 객체 생성
+		
+		t.randomDice(name);  // 메소드 실행
+	}
+	
+	// 리턴값 : X
+	// 매개변수 문자열
+	// Random 메소드 import
+	// 반복문 while
+	// 같은 수가 연속 2번 나올 때까지 반복 시도바다 횟수 카운트
+	// 앞 시도의 숫자 저장할 변수 선언, 뒷 시도의 숫자 저장할 변수 선언
+	// 두 숫자 비교
+	// 맞으면 결과 출력하고 빠져나오기
+	
+	void randomDice(String name) {  // 메소드 선언 매개변수 문자열
+		Random rd = new Random();  // 랜덤메소드 import
+		int num1 = rd.nextInt(1, 7), num2 = rd.nextInt(1, 7), count = 0;
+		// 1~6까지 나오게 할 주사위2개, 횟수를 셀 변수 1개 선언
+		while(true) {  // 반복실행
+			System.out.println((count+1) + "번째 시도...");  // 횟수 세어주기
+			System.out.println("num1 : " +num1);  // 앞에 나온 숫자
+			System.out.println("num2 : " +num2);  // 뒤에 나온 숫자
+			if(num1 == num2) {  // 두 숫자가 같다면
+				count++;  // 횟수 카운트
+				System.out.println();  // 줄 띄우기
+				System.out.println("연속으로 같은 수 나오기 성공");  // 축하메시지
+				System.out.println(name + "님은 총 " + (count) + "번만에 성공하셨습니다");  // 결과 출력
+				break;  // 메소드 종료
+			} else {  // 두 숫자가 같지 않으면
+				count++;  // 횟수 +1
+				System.out.println("-----실패!-----");  // 실패
+				System.out.println();  // 줄 띄우기
+				num1 = num2;  // 뒤에 나온 숫자를 앞에 나온 숫자로 저장
+				num2 = rd.nextInt(1, 6);  // 뒷 숫자를 새로 뽑는다
+			}
+		}
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+package task;
+
+import java.util.Scanner;
+
+// JAVA요 문제1
+public class Task04 {
+	public static void main(String[] args) {
+//		1번 문제 
+//		사용자에게 0~9까지의 정수 10개를 입력을 받고
+//		이 때 잘못된 정수를 입력하면 다시 입력을 받고
+//		사용자가 입력한 10개의 정수의 합을 구하시오
+		
+		// 입력메소드 import
+		// 겍체 선언
+		// 10개의 정수 입력받아 배열에 저장
+		// while문 올바른 값이 들어올 때까지 반복
+		// 결과 출력
+		
+		Scanner sc = new Scanner(System.in);  // 입력메소드 import
+		Task04 t = new Task04();  // 객체 선언
+		int[] ar = new int[10];  // 10칸 정수형 배열 선언
+		System.out.println("1자리수 정수를 10개 입력하세요.");  // 사용자에게 입력값 요구
+		for(int i=0; i<ar.length; i++) {  // 10번 입력받기
+			System.out.println((i+1) + "번째 정수를 입력하시오.");  // 몇번째 입력인지 알려주기
+			ar[i] = sc.nextInt();  // 입력받은 수들을 차례로 배열에 저장
+		}
+		
+		while(t.isOneNumber(ar)) {  // 1자리수를 잘 입력하지 못했다면
+			System.out.println("잘못된 값 입력. 다시 입력하세요.");  // 메시지 출력
+			System.out.println("1자리수 정수를 10개 입력하세요.");  // 다시 입력
+			
+			for(int i=0; i<ar.length; i++) {  // 10번 입력받기
+				System.out.println(i + "번째 정수를 입력하시오.");  // 몇번째 자리인지 알려주기
+				ar[i] = sc.nextInt();  // 입력받은 수들을 차례로 배열에 저장
+			}
+		}
+		
+		System.out.println("당신이 입력한 수들의 합 : " + t.getSum(ar));  // 결과 출력
+		sc.close();  // 자원 닫기
+	}
+	
+	// 리턴 타입 : boolean
+	// 매개변수 : 정수 배열
+	// for-each문 사용해서 올바른 값이 들어왔는지 확인
+	// boolean값을 리턴해서 메인메소드의 while 제어
+	
+	boolean isOneNumber(int[] ar) {  // 메소드 선언 논리형return, 매개변수 정수 배열
+		for(int data : ar) {  // 배열 둘러보기
+			if(data >= 10) {  // 안에 10 이상의 수가 있다면
+				return true;  // 반복 입력을 위한 true return
+			}
+		}
+		return false;  // 걸리는게 없다면 반복 종룔를 위한 false
+	}
+	
+	// 리턴 타입 : int
+	// 매개변수 : 정수 배열
+	// for-each문 사용하여 배열에 저장된 수 누적 합 구하기
+	
+	int getSum(int[] ar) {
+	// 배열에 있는 수들의 합을 구하는 메소드 정수형 return, 매개변수 정수형 배열
+		int sum = 0;  // 초기 변수 선언 및 초기화
+		for(int data : ar) {  // 배열 둘러보기
+			sum += data;  // 총합 저장할 변수에 누적 더하기
+		}
+		return sum;  // 총합 return
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+package task;
+
+import java.util.Scanner;
+
+// JAVA요 문제2
+public class Task05 {
+	public static void main(String[] args) {
+//		2번 문제
+//		사용자에게 행과 열의 수를 입력받아 그에 맞게 한칸당 []를 출력해 행과 열을 표시한다
+//		그리고 사용자에게 입력 받은 행 과 열의 곱을 제일 맨 마지막 []안에 기입해준다
+		
+		// 입력메소드 import
+		// 입력받은 두 수를 저장할 변수 선언
+		// 차례로 입력받은 대로 행과 열을 가지고 있는 2차원 배열 생성
+		// 이중for문 사용하여 i의 값과 j의 값을 []안에 넣어 출력
+		// 마지막 값을 행과열의 곱으로 넣어준다
+		
+		Scanner sc = new Scanner(System.in);  // 입력메소드 import
+		
+		System.out.println("두 정수를 입력하세요.");  // 사용자에게 입력값 요구
+		
+		int num1 = sc.nextInt();  // 첫 번째 정수 저장
+		int num2 = sc.nextInt();  // 두 번째 정수 저장
+		
+		sc.close();  // 자원 닫기
+		
+		int[][] ar = new int[num1][num2];  // 2차원 배열 생성
+		
+		for(int i=0; i<ar.length; i++) {  // 행
+			for(int j=0; j<ar[i].length; j++) {  // 열
+				
+				if((i==(ar.length-1)) && (j==(ar[i].length-1))) {  // 행과 열의 맨 마지막이라면
+					System.out.println("[" + (i*j) + "]");  // 행과 열의 곱을 출력
+				} else {  // 아니면
+					System.out.print("[" + i + " " + j + "]");  // [i j]를 출력
+				}
+			}
+			System.out.println();  // 행이 바뀔 떄마다 줄바꿈
+		}
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------
+package task;
+
+import java.util.Scanner;
+
+// JAVA요 문제3
+
+public class Task06 {
+	public static void main(String[] args) {
+//		3번 문제 
+//		사용자에게 각 국어, 수학, 역사의 점수를 입력받는다
+//		입력받은 3개의 과목의 총합점수와 소수점 2번째 자리 까지 평균을 구해라
+		
+		// 입력메소드 import
+		// 객체 선언
+		// 점수를 저장할 변수 선언
+		// 총합과 평균을 구해주는 메소드
+		
+		Scanner sc = new Scanner(System.in);  // 입력메소드 import
+		Task06 t = new Task06();  // 겍체 선언
+		
+		int korean = 0, math = 0, history = 0;  // 점수 저장할 변수 선언 및 초기화
+		
+		System.out.println("국어, 수학, 역사의 점수를 띄어쓰기를 통해 입력하세요.");  // 입력값 요구
+		korean = sc.nextInt();  // 국어 성적 저장
+		math = sc.nextInt();  // 수학 성적 저장
+		history = sc.nextInt();  // 역사 성적 저장
+		
+		System.out.printf("%.2f", t.getAvg(korean, math, history));  // 메소드 호출하여 평균 구하고 소수점 2자리까지 출력
+	}
+	
+	// 리턴 x 매개변수 정수
+	// 총합 구하기
+	// 평균 구하는 메소드 호출
+	double getAvg(int num1, int num2, int num3) {  // 점수를 받아 평균을 구해주는 메소드
+		int sum = num1 + num2 + num3;  // 점수를 더해 총합을 구한다
+		return div(sum);  // 평균을 구해주는 메소드 호출
+	}
+	
+	// 리턴x 매개변수 정수
+	// 평균 구하기
+	// 실수형으로 강제형변환 하고
+	// 평균 구해서 소수점 2자리까지 출력하기
+	
+	double div(int num) {  // 평균 구해주는 메소드
+		double avg = (double)num / 3;  // 입력받은 총합을 3으로 나누어주고 실수형으로 형변환
+		return avg;  // 평균 return
+	}
+}
