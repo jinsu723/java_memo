@@ -53,5 +53,14 @@ public class Main {
 //			    - transfer(Account target, double amount) 메소드: 잔액이 충분한 경우 송금 처리 수행
 //			    잔액이 부족하면 "송금 실패: 이유: 잔액 부족" 메시지 출력
 //			    - receive(double amount) 메소드: 수신 계좌의 잔액(balance)에 금액(amount)을 추가
+		
+		SavingAccount sa = new SavingAccount("길진수", 10000);
+		CheckingAccount ac = new CheckingAccount("맹구", 20000);
+		
+		sa.addInterest(5);
+		ac.addInterest(5);
+		
+		sa.transfer(ac, 3000);
+		ac.transfer(sa, 3000);
 	}
 }

@@ -19,28 +19,55 @@ public class CheckingAccount implements AdvanceAccount{
 //	    - receive(double amount) 메소드: 수신 계좌의 잔액(balance)에 금액(amount)을 추가
 	
 	private double balance;
+	private String accountHolder;
+	
+	
+	// 생성자
+	public CheckingAccount(String accountHolder, double balance) {
+		super();
+		this.balance = balance;
+		this.accountHolder = accountHolder;
+	}
+	
+	// 잔액 조회
 	@Override
 	public double getBalance() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.balance;
 	}
+	
+	//이름과 잔액을 출력
 	@Override
 	public void printDetails() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("이름 : " + this.accountHolder);
+		System.out.println("잔액 : " + this.balance);
 	}
+	
+//  - addInterest(double rate) 메소드: 잔액(balance)에 주어진 비율(rate, %)만큼 이자 추가
+//  이자율 계산공식: balance += balance * (rate / 100)
 	@Override
 	public void addInterest(double rate) {
-		// TODO Auto-generated method stub
-		
+		this.balance += balance * (rate / 100);
+		System.out.printf("이자를 받았습니다.\n%s님의 현제 잔액 : %.2f\n",this.accountHolder, this.balance);
 	}
+	
+//  - transfer(Account target, double amount) 메소드: 다른 계좌로 금액(amount) 송금
 	@Override
 	public void transfer(Account target, double amount) {
-		// TODO Auto-generated method stub
+		if(this.balance < amount) {
+			System.out.println(amount + "원 송금 불가!");
+			System.out.println("당신의 현제 잔액 : " + this.balance);
+			return;
+		}
+		this.balance -= amount;
+		System.out.println(amount + "원 송금 완료! 현제 잔액 : " + this.balance);
+		((SavingAccount)target).recive(amount);  // target에게 amount원을 송금
 	}
+
+
+	//  - receive(double amount) 메소드: 다른 계좌에서 송금된 금액을 수신 계좌의 잔액(balance)에 추가
 	@Override
 	public void recive(double amount) {
-		// TODO Auto-generated method stub
+		this.balance += amount; // this는 송금을 받는 객체
+		System.out.println(this.accountHolder + "님, " + amount + "원이 입금되었습니다. 현제 잔액 : " + this.balance);
 	}
-	private String accountHolder;
 }
